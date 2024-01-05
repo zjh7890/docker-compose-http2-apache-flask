@@ -7,7 +7,7 @@ port 80 is set to redirect.
 1. $ git clone https://github.com/Ramblec/docker-compose-http2-apache-flask.git
 2. $ cd docker-compose-http2-apache-flask
 3. make KEY certification file and CRT certification file and change the two files(/ssl/server.key & /ssl/serve.crt)
-4. change the content file(/data/html/index.php & /php/index.php) if you need
+4. change the content file(/app/main.py) if you need
 5. $ docker compose up <br>
     [If the configuration file does not mount properly] <br>
    comment out the line of mounting configuration file in "docker-compose.yml" <br>
