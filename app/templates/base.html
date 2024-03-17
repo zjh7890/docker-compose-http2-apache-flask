@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center">
+        <div class="inline-block border-t-4 border-blue-500 pt-1 mb-4"></div>
+        <h1 class="text-3xl font-semibold mb-2">Let me cc (see see)</h1>
+        <p class="text-gray-600">See what the GitHub community is most excited about today.</p>
+    </div>
+</div>
+<div class="container mx-auto px-4 py-6">
+    {% for repo in repositories %}
+    <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+        <div class="flex items-center space-x-2 mb-2">
+            <i class="fas fa-book text-black-500"></i>
+            <span class="font-semibold text-lg">
+                    {{ repo.name }}
+                </span>
+        </div>
+        <p class="text-gray-700 text-sm mb-2">
+            {{ repo.description }}
+        </p>
+        <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-1">
+                    <div class="rounded-full text-white w-5 h-5 flex items-center justify-center text-xs" style="background-color: {{ repo.repo_language_color }}">
+                        {{ repo.programmingLanguage[:2] | upper }}
+                    </div>
+                    <span class="text-gray-600 text-sm">
+                            {{ repo.programmingLanguage }}
+                        </span>
+                </div>
+                <div class="flex items-center space-x-1">
+                    <i class="fas fa-star text-gray-600"></i>
+                    <span class="text-gray-600 text-sm">
+                            {{ repo.stars }}
+                        </span>
+                </div>
+            </div>
+            <a href="{{ repo.url }}" class="text-gray-600 text-sm">
+                View on GitHub
+            </a>
+        </div>
+    </div>
+    {% else %}
+    <p>No repositories found.</p>
+    {% endfor %}
+</div>
+</body>
+</html>

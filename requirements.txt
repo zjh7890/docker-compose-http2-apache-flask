@@ -1,0 +1,7 @@
+Flask
+uwsgi
+openai~=1.14.1
+schedule~=1.2.1
+requests~=2.31.0
+beautifulsoup4~=4.12.3
+
